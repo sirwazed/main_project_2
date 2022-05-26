@@ -1,0 +1,22 @@
+    <mat-toolbar color="primary">
+        <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+        <div style="cursor: pointer;" routerLink="/dashboard">
+            <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+            </i>
+            <strong style="font-size: 30px;">Flipkart</strong>
+        </div>
+        <button style="margin: 2%;" routerLink="/dashboard" mat-flat-button color="accent">Dashboard</button>
+        <button style="margin: 0%;" routerLink="/products" *ngIf="showProductPage()" mat-flat-button
+            color="accent">Product</button>
+        <span class="example-spacer"></span>
+        <button mat-raised-button routerLink="/login" *ngIf="!isLoggedIn()" color="accent">Login</button>
+        <button mat-raised-button (click)="logout()" *ngIf="isLoggedIn()" color="accent">Logout</button>
+        <button *ngIf="isLoggedIn()" routerLink="/my-cart" style="margin: 2%;" mat-icon-button
+            class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon style="font-size: 40px;">shopping_cart</mat-icon>
+            <div style="font-size: 10px; margin: 10px;" *ngIf="cartItemNumber" class="badge bg-danger">
+                {{cartItemNumber}}</div>
+        </button>
+    </mat-toolbar>

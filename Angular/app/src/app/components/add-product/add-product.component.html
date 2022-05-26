@@ -1,0 +1,92 @@
+<div class="container">
+    <h1 class="title">Add Product Form</h1>
+    <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
+        <mat-form-field appearance="standard">
+            <mat-label>Product Name</mat-label>
+            <input matInput maxlength="50" inputmode="tel" placeholder="Type name" formControlName="productName" #nameInput>
+            <mat-hint>Mini character 3: {{ nameInput.value.length }}/3</mat-hint>
+            <mat-error>Name is required</mat-error>
+            <mat-error **ngIf="(form.get('productName')).errors?.minlength">
+                Please enter more than 3 character
+            </mat-error>
+            <mat-error **ngIf="(form.get('productName')).errors?.maxlength">
+                Please enter less than 50 character
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Product Short Code</mat-label>
+            <input matInput maxlength="50" inputmode="tel" placeholder="Type code" formControlName="productShortCode" #codeInput>
+            <mat-hint>Mini character 3: {{ codeInput.value.length }}/3</mat-hint>
+            <mat-error>Code is required</mat-error>
+            <mat-error **ngIf="(form.get('productShortCode')).errors?.minlength">
+                Please enter more than 3 character
+            </mat-error>
+            <mat-error **ngIf="(form.get('productShortCode')).errors?.maxlength">
+                Please enter less than 50 character
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hintLabel="Category required">
+            <mat-label>Category</mat-label>
+            <mat-select matNativeControl name="category" formControlName="category">
+                <mat-option value="electronics">Electronics</mat-option>
+                <mat-option value="fashion">Fashion</mat-option>
+                <mat-option value="jewelery">Jewelery</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Price</mat-label>
+            <input formControlName="price" matInput type="number" placeholder="0">
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput placeholder="Description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Image URL</mat-label>
+            <input formControlName="imageUrl" matInput placeholder="URL">
+            <input (change)="fileSelected($event)" type="file">
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Email Address:</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Your email">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-hint>Input the fully qualified email address</mat-hint>
+            <mat-error **ngIf="(form.get('email')).errors?.required">Email is required</mat-error>
+            <mat-error **ngIf="(form.get('email')).errors?.pattern">Please enter valid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Address:</mat-label>
+            <textarea matInput placeholder="address" formControlName="address"></textarea>
+        </mat-form-field>
+
+        <div style="margin-top:10px;">
+            <div style="margin-right:3%; color:#6b6b6b;">
+                <mat-label>Gender</mat-label>
+            </div>
+            <mat-radio-group formControlName="gender">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+        </div>
+        <div>{{ form.value | json }}</div>
+    </form>
+</div>

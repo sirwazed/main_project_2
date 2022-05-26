@@ -1,0 +1,101 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  table {
+    width: 100%;
+  }
+
+  .productBtn{
+    text-align: end;
+    margin-top: 20px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+::ng-deep .mat-paginator-page-size{
+    display: none !important;
+}
+
+::ng-deep .mat-paginator-range-label{
+    display: none !important;
+}
+  
+  td, th {
+    width: auto;
+  }
+  th{
+    font-weight:bolder;
+    font-size: medium;
+  }
+  .container{
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .mat-column-description {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .mat-column-productName {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .mat-column-productShortCode {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 5% !important;
+    width: 5% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin-left: 10px;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom-width: 0px;  
+}
+
+
+.mat-row:hover{
+  // box-shadow: inset 0px -7px 15px #1976d255;
+  background-color: #e9f3ff;
+}
+
+  
+
+  

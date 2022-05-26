@@ -1,0 +1,4 @@
+﻿{
+    "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+    "connectionString": "mongodb+srv://hasan120:hasan120@cluster0.nci4p.mongodb.net/role-based-test"
+}

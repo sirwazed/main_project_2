@@ -1,0 +1,70 @@
+<div class="card-top container-fluid">
+  <div class="container d-flex">
+      <div (click)="test('all')" class="item">
+          <button class="btn">
+            <a>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+                <h3><strong>All products</strong></h3>
+            </a>
+          </button>
+      </div>
+      <div (click)="test('electronics')" class="item">
+          <button class="btn"><a>
+              <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
+              <h3><strong>Electronics</strong></h3>
+          </a></button>
+      </div>
+      <div (click)="test('fashion')" class="item">
+          <button class="btn">
+            <a>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
+                <h3><strong>Fashion</strong></h3>
+            </a>
+          </button>
+      </div>
+      <div (click)="test('jewelery')" class="item">
+          <button class="btn">
+            <a>
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
+                <h3><strong>Jewllery</strong></h3>
+            </a>
+          </button>
+          
+      </div>
+  </div>
+</div>
+
+<!-- loading screen -->
+<ng-container *ngIf="!isLoaded">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only load" id="loading"></span>
+        </div>
+    </div>
+</ng-container>
+
+
+<div class="container">
+  <div class="row">
+      <ng-container *ngFor="let item of productList; let i=index">
+          <div class="card col-md-3">
+              <img src="{{item.imageUrl}}" alt="">
+              <h2 style="white-space: nowrap;overflow:hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.productName}}</h2>
+              <p style="white-space: nowrap;overflow:hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+              <p><strong>Price: </strong>${{item.price}}</p>
+              <div class="addToCart">
+                <button (click)="increment(i)" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                    <mat-icon>add_circle_outline</mat-icon>
+                  </button>
+                  <mat-label>{{item.quantity}}</mat-label>
+                  <button (click)="decrement(i)" mat-icon-button color="warn" aria-label="Example icon button with a home icon">
+                    <mat-icon>remove_circle_outline</mat-icon>
+                  </button>
+                <button (click)="addToCart(item)" class="btn btn-primary">Add to cart</button>
+              </div>
+          </div>
+      </ng-container>
+  </div>
+</div>
+
+<mat-paginator [length]="this.productList.length+1" (page)="onPageChange($event)" [showFirstLastButtons]="true"  [hidePageSize]="true" [pageSizeOptions]="[10]" aria-label="Select page of users"></mat-paginator>
